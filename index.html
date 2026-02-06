@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portia Training & Consulting</title>
+    <meta name="description" content="Connecting software companies with top IT industry experts — Java Champions, OSS creators, and conference speakers — for short-term, high-impact engagements.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #faf9f7;
+            --text: #1a1a2e;
+            --accent: #2d6a4f;
+            --accent-light: #40916c;
+            --subtle-bg: #f0f7f4;
+            --secondary-text: #5a6370;
+            --border: #e2e2e0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 100px 0 80px;
+            text-align: center;
+        }
+
+        .wordmark {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            max-width: 720px;
+            margin: 0 auto 20px;
+        }
+
+        .hero .subline {
+            font-size: 1.15rem;
+            color: var(--secondary-text);
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        /* Section common */
+        section {
+            padding: 72px 0;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .section-heading {
+            font-size: clamp(1.5rem, 3.5vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        /* What We Do — cards */
+        .services {
+            background: var(--subtle-bg);
+            border-radius: 0;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 32px 28px;
+            border: 1px solid var(--border);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .card-icon {
+            font-size: 1.75rem;
+            margin-bottom: 16px;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--secondary-text);
+            line-height: 1.55;
+        }
+
+        /* Why Portia */
+        .why-portia {
+            text-align: center;
+        }
+
+        .differentiators {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .diff-item {
+            padding: 8px;
+        }
+
+        .diff-number {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .diff-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .diff-item p {
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+        }
+
+        /* About */
+        .about-content {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 1.05rem;
+            color: var(--secondary-text);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .about-content strong {
+            color: var(--text);
+        }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+            background: var(--subtle-bg);
+            padding: 80px 0;
+        }
+
+        .cta .section-heading {
+            margin-bottom: 16px;
+        }
+
+        .cta .cta-sub {
+            font-size: 1.05rem;
+            color: var(--secondary-text);
+            margin-bottom: 36px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+            box-shadow: 0 4px 16px rgba(45, 106, 79, 0.25);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* Footer */
+        footer {
+            padding: 32px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--secondary-text);
+            border-top: 1px solid var(--border);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 72px 0 56px;
+            }
+
+            section {
+                padding: 56px 0;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .differentiators {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 56px 0 40px;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .differentiators {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<header class="hero">
+    <div class="container">
+        <div class="wordmark">Portia Training &amp; Consulting</div>
+        <h1>Connecting Companies with Top Industry Experts for Short-term Engagements</h1>
+        <p class="subline">We bridge the gap between software companies and the brightest minds in the IT industry.</p>
+    </div>
+</header>
+
+<!-- What We Do -->
+<section class="services">
+    <div class="container">
+        <p class="section-label">What We Do</p>
+        <h2 class="section-heading">Tailored Expert Engagements</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon" aria-hidden="true">&#9881;</div>
+                <h3>Consulting</h3>
+                <p>Hands-on guidance from senior practitioners who have built and scaled production systems at the highest level.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" aria-hidden="true">&#9998;</div>
+                <h3>Training</h3>
+                <p>Intensive workshops and courses delivered by recognised authorities in their fields — from JVM internals to cloud-native architecture.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" aria-hidden="true">&#9734;</div>
+                <h3>Mentoring</h3>
+                <p>Long-term mentorship programs pairing your teams with industry leaders who accelerate growth and raise the bar.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon" aria-hidden="true">&#127908;</div>
+                <h3>Speaking</h3>
+                <p>Book top-tier conference speakers for your internal events, meetups, and company-wide knowledge-sharing sessions.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Portia -->
+<section class="why-portia">
+    <div class="container">
+        <p class="section-label">Why Portia</p>
+        <h2 class="section-heading">We Know the Best Because We Work with the Best</h2>
+        <div class="differentiators">
+            <div class="diff-item">
+                <div class="diff-number">0.1%</div>
+                <h3>Top Talent</h3>
+                <p>Our network is curated, not crowdsourced. Every expert has a proven track record in the industry.</p>
+            </div>
+            <div class="diff-item">
+                <div class="diff-number">JC</div>
+                <h3>Java Champions</h3>
+                <p>Direct access to Java Champions — the most recognised technical leaders in the Java ecosystem.</p>
+            </div>
+            <div class="diff-item">
+                <div class="diff-number">OSS</div>
+                <h3>Open Source Creators</h3>
+                <p>Creators and maintainers of widely adopted open source projects trusted by millions of developers.</p>
+            </div>
+            <div class="diff-item">
+                <div class="diff-number">100+</div>
+                <h3>Conference Speakers</h3>
+                <p>Speakers who regularly headline major international conferences like Devoxx, JavaOne, and QCon.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About -->
+<section class="about">
+    <div class="container">
+        <p class="section-label">About</p>
+        <h2 class="section-heading">Built on a Decade of Relationships</h2>
+        <div class="about-content">
+            <p>Portia Training &amp; Consulting was founded by <strong>Paulina</strong>, who spent over 10 years building deep, trust-based relationships with the global tech community through her work with <strong>GeeCON</strong> — one of Europe's leading software development conferences.</p>
+            <p>Those years of organising events, curating speaker line-ups, and collaborating with the world's top technologists gave Paulina a unique network and an eye for matching the right expert with the right challenge. Portia exists to make that network accessible to companies looking for real impact — not generic consultancy.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <div class="container">
+        <p class="section-label">Get in Touch</p>
+        <h2 class="section-heading">Let's Find the Right Expert for You</h2>
+        <p class="cta-sub">Whether you need a one-day workshop or a quarter-long engagement, we'd love to hear from you.</p>
+        <div class="cta-buttons">
+            <a href="https://www.linkedin.com/company/portia-training-consulting" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                LinkedIn
+            </a>
+            <a href="mailto:contact@portiatc.com" class="btn btn-secondary">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                Email Us
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        &copy; 2025 Portia Training &amp; Consulting. All rights reserved.
+    </div>
+</footer>
+
+</body>
+</html>
